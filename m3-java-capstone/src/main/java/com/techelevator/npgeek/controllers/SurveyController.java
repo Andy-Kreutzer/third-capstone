@@ -1,5 +1,6 @@
 package com.techelevator.npgeek.controllers;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -16,12 +17,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.npgeek.model.survey.Survey;
+import com.techelevator.npgeek.model.survey.SurveyDAO;
 
 @Controller
 public class SurveyController {
 	
-//	@Autowired
-//	private ParksDao parkDao;
+	@Autowired
+	private SurveyDAO surveyDao;
 	
 	// GET: /register
 	// Return the empty registration view
@@ -40,13 +42,16 @@ public class SurveyController {
 	// registration view (if validation fails)
 
 	@RequestMapping(path="/surveyPage", method=RequestMethod.POST)
-	public String handleSurveyForm(@Valid @ModelAttribute("survey") Survey survey, BindingResult result, RedirectAttributes attr) {
+	public String handleSurveyForm(@Valid @ModelAttribute("survey") Survey survey, BindingResult result, 
+				RedirectAttributes attr, HttpServletRequest request) {
 	    
 	    attr.addFlashAttribute("survey", survey);
 	    if(result.hasErrors()) {
 	        attr.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "survey", result);
 	        return "redirect:/surveyPage";
 	    }
+	    
+	    surveyDao.save(survey);
 	    
 	    return "redirect:/favoriteParks";
 	}

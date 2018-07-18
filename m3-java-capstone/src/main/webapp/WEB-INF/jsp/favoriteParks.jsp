@@ -11,7 +11,7 @@
 	
 	<div>
 		<c:forEach var="favorite" items="${favorites}">
-			<p>${favorite.parkCode}
+			<p>${favorite.code}
 			<p>${favorite.count}</p>
 		</c:forEach>
 	</div>

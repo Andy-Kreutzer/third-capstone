@@ -8,11 +8,14 @@
 
 <section>
 	<h2>Parks Home</h2>
-
 	<div>	
 		<c:forEach var="park" items="${allParks}">
+		<c:url var ="parkDetails" value="/parkDetails">
+			<c:param name="parkCode"> ${park.parkCode} </c:param>
+		</c:url>
+		
 		<div>
-			<img src="img/parks/${park.parkCode.toLowerCase()}.jpg"/>
+			<a href="${parkDetails}"> <img src="img/parks/${park.parkCode.toLowerCase()}.jpg"/></a>
 		</div>
 			<p>${park.parkName}</p>
 			<p>${park.parkDescription}</p>

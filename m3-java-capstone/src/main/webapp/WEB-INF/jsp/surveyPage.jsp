@@ -14,7 +14,7 @@
 <form:form action="${submit}" method="POST" modelAttribute="survey">
         <div>
                 <label for="parkCode">Favorite National Park</label>
-                <select>
+                <select name="parkCode">
                 	<option value="CVNP">Cuyahoga Valley National Park</option>
                 	<option value="ENP">Everglades National Park</option>
                 	<option value="GCNP">Grand Canyon National Park</option>
@@ -36,7 +36,7 @@
         
         <div>
                 <label for="state">Your State of Residence</label>
-                <select>
+                <select name="state">
 					<option value="AL">AL</option>
 					<option value="AK">AK</option>
 					<option value="AR">AR</option>	

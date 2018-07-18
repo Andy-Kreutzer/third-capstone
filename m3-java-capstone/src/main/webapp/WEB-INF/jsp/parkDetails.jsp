@@ -8,14 +8,28 @@
 
 <h2>Parks Details</h2>
 
-<h2 class="error">${error}</h2>
+  <section id="main-content">
+			
+				<div id="descriptItem">
+					<img src="img/parks/${park.parkCode.toLowerCase()}.jpg"/>
+				</div>
+				
+				<p>${park.parkName}</p>
+				<p>${park.parkDescription}</p>
+				<p>${park.state}</p>
+				<p>${park.acreage}</p>
+				<p>${park.elevation}</p>
+				<p>${park.milesOfTrail}</p>
+				<p>${park.numOfCampsites}</p>
+				<p>${park.climate}</p>
+				<p>${park.yearFounded}</p>
+				<p>${park.quote}</p>
+				<p>${park.quoteSource}</p>
 
-<form action="${parkDetails}" method="POST">
-	<label for="name">UserName:</label>
-	<input type="text" name="username" /><br />
-	<label for="password">Password:</label>
-	<input type="password" name="password" /><br />
-	<input type="submit" value="Login" />
+				<p>${park.entryFee}</p>
+				<p>${park.numOfAnimalSpec}</p>				
+    </section>
 
-</form>
+
+
 <%@include file="common/footer.jspf"%>

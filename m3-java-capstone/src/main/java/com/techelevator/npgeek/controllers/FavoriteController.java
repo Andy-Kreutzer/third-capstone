@@ -19,14 +19,13 @@ import com.techelevator.npgeek.model.survey.SurveyDAO;
 public class FavoriteController {
 	
 	@Autowired
-	private ParkDAO parkDao;
-	
-	@Autowired
 	private SurveyDAO surveyDao;
 	
 	@RequestMapping(path="/favoriteParks", method=RequestMethod.GET)
 	public String showFavorite(HttpServletRequest request) {
-		request.setAttribute("favorites", surveyDao.getFavoriteParks());
+		request.setAttribute("favorites", surveyDao.getFavoritesFromSurveys());
 		return "favoriteParks";
 	}
+	
+	
 }
