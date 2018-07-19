@@ -1,6 +1,7 @@
 body {
-    padding-top: 50px;
+    padding-top: 150px;
     padding-bottom: 20px;
+    display: block:
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -26,4 +27,17 @@ textarea {
 
 .red {
 	background-color: red;
+}
+
+.header-body {
+	background-color: white;
+}
+
+#logo {
+	height: 30%;
+	width: 30%;
+}
+
+.container {
+	background-color: white;
 }

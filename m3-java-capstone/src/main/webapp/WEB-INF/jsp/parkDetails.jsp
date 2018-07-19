@@ -6,6 +6,7 @@
 
 <c:url var="parkDetails" value="/parkDetails" />
 
+
 <h2>Parks Details</h2>
 
   <section id="main-content">
@@ -34,24 +35,28 @@
 					<p>${dailyWeather.forecast}</p>					
 					<p>${dailyWeather.high}</p>
 					<p>${dailyWeather.low}</p>
-					
+					<p>${dailyWeather.forecastSuggestion}</p>
+					<p>${dailyWeather.tempSuggestion}</p>
 				</c:forEach>	
 								
-				<c:forEach var="suggestion" items="${suggestions}">
-					<p>${suggestion}</p>										
-				</c:forEach>
+		
+		<c:url var="formAction" value="parkDetail?parkCode=${park.parkCode}" />
+		<form method="GET" action="${formAction}">
 				
-				<c:forEach var="temperatureSuggestion" items="${temperatureSuggestions}">
-					<p>${temperatureSuggestion}</p>										
-				</c:forEach>
+					
 				
-				<label for="tempType"> Display temperature in </label>
-					<select name="tempType">
-						<option value="fahrenheit">Fahrenheit</option>
-						<option value="celsius">Celsius</option>
+				
+				
+				<label for="temp"> Display temperature in </label>
+					<select name="temp">
+						<option value="F">Fahrenheit</option>
+						<option value="C">Celsius</option>
 					</select>
 				<input type="submit" value="Select" />		
+				
 					
+				</form>	
+
     </section>
 
 

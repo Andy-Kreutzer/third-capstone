@@ -28,57 +28,39 @@ public class ParkDetailsController {
 	@Autowired
 	private WeatherDAO weatherDao;
 
-
 	
 	@RequestMapping(path="/parkDetails", method=RequestMethod.GET)
-	public String showDetails(HttpServletRequest request, @RequestParam(name="tempType") String tempType, ModelMap map) {
-		map.addAttribute("tempType", tempType);
-		
-		String parkCode = request.getParameter("parkCode");
-		ArrayList<Weather> parkForecast = new ArrayList<>();
-		parkForecast =  (ArrayList<Weather>) weatherDao.getWeather(parkCode);
-		
-		String[] suggestions = {"", "", "", "", ""};
-		String[] temperatureSuggestions = {"", "", "", "", ""};
-		
-		for (int i=0; i < 5; i++) {
-			switch (parkForecast.get(i).getForecast()) { 
-				case "snow": 	
-					suggestions[i] = "Remember to pack your snowshoes!";
-					break;
-				
-				case "rain":
-					suggestions[i] = "Remember to pack your rain gear and wear waterproof shoes!";
-					break;
-				
-				case "thunderstorms":
-					suggestions[i] = "Seek shelters and avoid hiking on exposed ridges!";
-					break;
-				case "sunny":
-					suggestions[i] = "Bring sunblock!";
-					break;
-			}
-			
-			if (parkForecast.get(i).getHigh() > 75) {
-				temperatureSuggestions[i] = "Bring extra water!"; 
-			}
-			
-			if((parkForecast.get(i).getHigh() - parkForecast.get(i).getLow()) > 20) {
-				temperatureSuggestions[i] = "Wear breathable layers!"; 
-			}
-			
-			if(parkForecast.get(i).getLow() < 20) {
-				temperatureSuggestions[i] = "Danger! Long time exposures to low temperatures could be damaging!"; 
-			}
-			
+	public String showDetails(HttpServletRequest request, ModelMap map) {
+	
+		if (map.get("tempType") == null) {
+			map.addAttribute("tempType", "F");
 		}
-		
-		
-		request.setAttribute("park", parkDao.getParkByCode(parkCode));
-		request.setAttribute("parkForecast", parkForecast);
-		request.setAttribute("suggestions", suggestions);
-		request.setAttribute("temperatureSuggestions", temperatureSuggestions);
-		
-		return "parkDetails";
+		System.out.println(map.get("tempType"));
+	    String parkCode = request.getParameter("parkCode");
+	    List<Weather> parkForecast = new ArrayList<>();
+	    parkForecast = weatherDao.getWeather(parkCode);
+	   
+	    if (map.get("tempType").equals("C")) {
+	        for (int i = 0; i < 5; i++) {
+	        	System.out.print("Here!");
+	        	double newHigh = (parkForecast.get(i).getHigh() - 32);
+	        	double newLow = (parkForecast.get(i).getLow() - 32);
+	            parkForecast.get(i).setHigh((int) newHigh);
+	            parkForecast.get(i).setLow((int) newLow);
+	        }
+	    }
+	    
+	    request.setAttribute("park", parkDao.getParkByCode(parkCode));
+	    request.setAttribute("parkForecast", parkForecast);
+	   
+	    
+	    return "parkDetails"; 
+	}
+	
+	@RequestMapping(path="/parkDetails", method=RequestMethod.POST)
+	public String changeTempType(@RequestParam(name="temp") String tempType, ModelMap map) {
+		map.addAttribute("tempType", tempType);
+		//return "parkDetails";   // Without bgClass as a SessionAttribute this page has the color, but no others
+		return "redirect:/";    // Without bgClass as a SessionAttribute, a redirect loses our changes.  How does this change once we add the bgClass as a Session Attribute?
 	}
 }

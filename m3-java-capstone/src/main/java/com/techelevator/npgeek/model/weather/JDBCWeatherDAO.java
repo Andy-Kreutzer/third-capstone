@@ -29,6 +29,8 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		}
 		return fiveDayForecast;
 	}
+	
+	
 
 	private Weather mapRowToWeather(SqlRowSet results) {
 		Weather newWeather = new Weather();
@@ -36,7 +38,10 @@ public class JDBCWeatherDAO implements WeatherDAO {
 		newWeather.setForecast(results.getString("forecast"));
 		newWeather.setHigh(results.getInt("high"));
 		newWeather.setLow(results.getInt("low"));
-
+		newWeather.setForecastSuggestion(newWeather.getForecast());
+		newWeather.setTempSuggestion(newWeather.getHigh(), newWeather.getLow());
 		return newWeather;
 	}
+
+
 }

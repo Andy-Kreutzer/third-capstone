@@ -27,14 +27,15 @@
     </style>
 </head>
 
-<c:set var="backgroundClass" value="white" />
+<%-- <c:set var="backgroundClass" value="white" />
 <c:if test="${not empty bgClass}">
 	<c:set var="backgroundClass" value="${bgClass}" />
-</c:if>
-
-<body style="background-color: ${backgroundClass}">
+</c:if> --%>
+<%-- <body style="background-color: ${backgroundClass}"> --%>
+<body class="header-body">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
+         <img src="img/logo.png" id="logo"/>
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
