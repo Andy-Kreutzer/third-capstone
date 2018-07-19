@@ -27,7 +27,31 @@
 				<p>${park.quoteSource}</p>
 
 				<p>${park.entryFee}</p>
-				<p>${park.numOfAnimalSpec}</p>				
+				<p>${park.numOfAnimalSpec}</p>
+				<p>${park.yearFounded}</p>
+				
+				<c:forEach var="dailyWeather" items="${parkForecast}">
+					<p>${dailyWeather.forecast}</p>					
+					<p>${dailyWeather.high}</p>
+					<p>${dailyWeather.low}</p>
+					
+				</c:forEach>	
+								
+				<c:forEach var="suggestion" items="${suggestions}">
+					<p>${suggestion}</p>										
+				</c:forEach>
+				
+				<c:forEach var="temperatureSuggestion" items="${temperatureSuggestions}">
+					<p>${temperatureSuggestion}</p>										
+				</c:forEach>
+				
+				<label for="tempType"> Display temperature in </label>
+					<select name="tempType">
+						<option value="fahrenheit">Fahrenheit</option>
+						<option value="celsius">Celsius</option>
+					</select>
+				<input type="submit" value="Select" />		
+					
     </section>
 
 

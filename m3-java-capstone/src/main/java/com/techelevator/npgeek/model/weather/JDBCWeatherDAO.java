@@ -8,7 +8,9 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JDBCWeatherDAO implements WeatherDAO {
 	private JdbcTemplate jdbcTemplate;
 	
@@ -18,24 +20,23 @@ public class JDBCWeatherDAO implements WeatherDAO {
 	}
 
 	@Override
-	public List<Weather> getAllWeather() {
-		List<Weather> allWeathers = new ArrayList<>();
-		String sqlAllWeathers = "SELECT * FROM weather";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlAllWeathers);
+	public List<Weather> getWeather(String parkCode) {
+		List<Weather> fiveDayForecast = new ArrayList<>();
+		String sqlFiveDayWeather = "SELECT low, high, forecast FROM weather WHERE parkcode = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFiveDayWeather, parkCode);
 		while(results.next()) {
-			allWeathers.add(mapRowToWeather(results));
+			fiveDayForecast.add(mapRowToWeather(results));
 		}
-		return allWeathers;
+		return fiveDayForecast;
 	}
 
 	private Weather mapRowToWeather(SqlRowSet results) {
 		Weather newWeather = new Weather();
-		
-		newWeather.setFiveDayForecastValue(results.getInt("fivedayforecast"));
+
 		newWeather.setForecast(results.getString("forecast"));
-		newWeather.setParkcode(results.getString("parkcode"));
 		newWeather.setHigh(results.getInt("high"));
 		newWeather.setLow(results.getInt("low"));
-		return null;
+
+		return newWeather;
 	}
 }

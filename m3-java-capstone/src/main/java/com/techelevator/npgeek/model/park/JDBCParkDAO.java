@@ -1,6 +1,5 @@
 package com.techelevator.npgeek.model.park;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,8 +34,14 @@ public class JDBCParkDAO implements ParkDAO {
 
 	@Override
 	public Park getParkByCode(String parkCode) {
-		// TODO Auto-generated method stub
-		return null;
+		Park newPark = null;
+		String sqlGetParkByCode = "SELECT * FROM park WHERE parkcode = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetParkByCode, parkCode);
+		while(results.next()) {
+			newPark = mapRowToPark(results);
+		}
+		
+		return newPark;
 	}
 	
 	private Park mapRowToPark(SqlRowSet row) {
