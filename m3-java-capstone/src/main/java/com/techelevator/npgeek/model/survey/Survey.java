@@ -6,13 +6,15 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Survey {
 
 	private Long id;
+	@NotBlank(message="Favorite park required")
 	private String parkCode;
 	@NotBlank(message="Email address is required")
 	@Email(message="Email must be a valid email address")
 	private String email;
+	@NotBlank(message="State of residence required")
 	private String state;
+	@NotBlank(message="Activity level required")
 	private String activityLevel;
-	private String message;
 	
 	public Long getId() {
 		return id;
@@ -52,14 +54,6 @@ public class Survey {
 	
 	public void setActivityLevel(String activityLevel) {
 		this.activityLevel = activityLevel;
-	}
-	
-	public String getMessage() {
-		return message;
-	}
-	
-	public void setMessage(String message) {
-		this.message = message;
 	}
 	
 }

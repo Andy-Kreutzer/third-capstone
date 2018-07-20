@@ -12,7 +12,7 @@
 <h2 class="error">${error}</h2>
 
 <form:form action="${submit}" method="POST" modelAttribute="survey">
-        <div>
+        <div class="favorite">
                 <label for="parkCode">Favorite National Park</label>
                 <select name="parkCode">
                 	<option value="CVNP">Cuyahoga Valley National Park</option>
@@ -28,13 +28,13 @@
                 </select>          
         </div>
         
-         <div>
+         <div class="email">
             <label for="email">Your Email</label>
             <form:input path="email" />            
             <form:errors path="email" cssClass="error"/>
         </div>
         
-        <div>
+        <div class="state">
                 <label for="state">Your State of Residence</label>
                 <select name="state">
 					<option value="AL">AL</option>
@@ -91,8 +91,8 @@
 				</select>		 
         </div>
        
-        <div>
-            <label for="activityLevel">Activity Level</label>
+        <div class="activity">
+            <label for="activityLevel">Activity Level</label><br>
 			<input type="radio" name="activityLevel" value="inactive" checked> Inactive<br>
 			<input type="radio" name="activityLevel" value="sedentary"> Sedentary<br>
 			<input type="radio" name="activityLevel" value="active"> Active<br>

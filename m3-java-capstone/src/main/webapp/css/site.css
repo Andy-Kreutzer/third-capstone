@@ -1,5 +1,4 @@
 body {
-    padding-top: 150px;
     padding-bottom: 20px;
     display: block:
 }
@@ -21,23 +20,221 @@ textarea {
 	color: red;
 }
 
-.white {
-	background-color: white;
-}
-
-.red {
-	background-color: red;
-}
-
-.header-body {
-	background-color: white;
+/* Header CSS */
+.headerBody{
+	background-color: tan;
+	padding-bottom: 40px;
 }
 
 #logo {
-	height: 30%;
-	width: 30%;
+	height: 50%;
+	width: 50%;
 }
 
-.container {
+header h1 {
+	font-size: 21pt;
+	color: #FFFFFF;
+}
+
+header p {
+	color: #FFFFFF;
+	/*font-size: 12pt;*/
+}
+
+header img {
+	height: 30%;
+}
+
+nav {
+	padding-bottom: 10px;
+}
+
+ul {
+	padding-left: 80px;
+}
+
+li {
+	padding-bottom: 4px;
+}
+
+li a {
+	color: #0D118B;
+	text-decoration: none;
+	/*font-size: 20pt;*/
+	list-style: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+nav ul {
+	width: 100%;
+}
+
+nav ul li {
+	float: left;
+	margin-right: 20px;
 	background-color: white;
+	border-radius: 8px;
+	list-style: none;
+	text-align: left;
+	padding-top: 5px;
+}
+
+nav:after {
+	clear: both;
+}
+
+li a:hover {
+	text-decoration: underline;
+}
+
+/* Home Page CSS */
+
+.homepageItem {
+	border:2px solid black;
+	display: flex;
+	flex-wrap: nowrap;
+	margin-bottom: 20px;
+}
+
+.homepageText {
+	/* border: 1px solid green; */
+}
+
+.homepagePic {
+	margin-right: 10px;
+	margin-bottom: -4px;
+	border-right: 2px solid black;
+}
+
+h3 {
+	text-size: 20px;
+}
+
+/* Detail Page CSS */
+
+h2 {
+	text-align: center;	
+}
+
+h1{
+	text-align: center;	
+}
+
+#detailsImg {
+	width: 60%;
+	margin-left: 20%;
+}
+
+table {
+	margin-left: 30%;
+}
+
+td {
+	padding-left: 20px;
+	padding-right: 100px;
+}
+
+.fiveDay {
+	display: flex;
+	flexwrap: nowrap;	
+}
+
+.dailyWeather {
+	display: block;
+	width: 20%;
+}
+
+.firstDayWeather {
+	font-size: 20px;
+}
+
+#FirstWeatherImg {
+	width: 40%;
+	height: 40%;
+}
+
+#dailyWeatherImg {
+	width: 50%;
+}
+
+.weatherText {
+	width: 75%;
+}
+
+.tempChange {
+	padding-top: 30px;
+}
+
+.tempDropBox {
+	font-size: 15px;
+}
+
+#quote {
+	font-size: 20px;
+	text-align: center;	
+}
+
+#quoteText {
+	font-size: 30px;
+}
+
+button {
+	width: 100px;
+	height: 30px;
+	text-align: center;
+	vertical-align: middle;
+	padding-bottom: 5px;
+	font-size: 15px;
+}
+
+/* Survey CSS */
+
+.favorite{
+	padding-bottom: 10px;
+}
+
+.email {
+	padding-bottom: 10px;
+}
+
+.state {
+	padding-bottom: 10px;
+}
+
+.activity {
+	padding-bottom: 10px;
+}
+
+/* Favorite Parks CSS */
+
+.favorite {
+	display: flex;
+	flexwrap: nowrap;
+	
+}
+
+.surveyImg {
+	width: 100px;
+	height: 100px;
+}
+
+.surveyPic {
+	width: 80%;
+}
+
+.favoriteTxt {
+	width: 40%;
+	padding-right: 40px;
+	padding-top: 5%;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.favoriteVotes {
+	width: 20%;
+	vertical-align: middle;
+	padding-top: 5%;
+	font-weight: bold;
+	font-size: 30px;
 }

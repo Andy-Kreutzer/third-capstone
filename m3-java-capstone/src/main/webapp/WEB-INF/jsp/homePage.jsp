@@ -7,20 +7,22 @@
 <c:url var="homePage" value="/homePage" />
 
 <section>
-	<h2>Parks Home</h2>
-	<div>	
-		<c:forEach var="park" items="${allParks}">
+<h1>Parks Home</h1>
+
+<c:forEach var="park" items="${allParks}">
+	<div class = "homepageItem">
 		<c:url var ="parkDetails" value="/parkDetails">
 			<c:param name="parkCode"> ${park.parkCode} </c:param>
 		</c:url>
-		
 		<div>
-			<a href="${parkDetails}"> <img src="img/parks/${park.parkCode.toLowerCase()}.jpg"/></a>
+			<a href="${parkDetails}"><img class="homepagePic" src="img/parks/${park.parkCode.toLowerCase()}.jpg"/></a>
 		</div>
-			<p>${park.parkName}</p>
-			<p>${park.parkDescription}</p>
-		</c:forEach>
+		<div class = "homepageText">
+			 <h3>${park.parkName}</h3>
+			 <p>${park.parkDescription}</p>
+		</div>  
 	</div>
+</c:forEach>
 
 </section>
 

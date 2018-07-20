@@ -45,13 +45,4 @@ public class JDBCSurveyDAO implements SurveyDAO {
 		jdbcTemplate.update(sqlInsertSurvey, survey.getParkCode(), survey.getEmail(), survey.getState(), survey.getActivityLevel());	
 	}
 	
-//	private Survey mapRowToSurvey(SqlRowSet row) {
-//		Survey survey = new Survey();
-//		survey.setId(row.getLong("surveyid"));
-//		survey.setParkCode(row.getString("parkcode"));
-//		survey.setEmail(row.getString("emailaddress"));
-//		survey.setState(row.getString("state"));
-//		survey.setActivityLevel(row.getString("activitylevel"));
-//		return survey;
-//	}
 }
