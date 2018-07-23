@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td><p><b>Year Founded: </b>${park.yearFounded}</p></td>
-			<td><p><b>Entry Fee: </b>${park.entryFee}</p></td>
+			<td><p><b>Entry Fee: $</b>${park.entryFee}</p></td>
 		</tr>
 		<tr>
 			<td><p><b>Number of Animal Species: </b>${park.numOfAnimalSpec}</p></td>

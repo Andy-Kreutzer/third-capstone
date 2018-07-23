@@ -1,6 +1,7 @@
 body {
     padding-bottom: 20px;
-    display: block:
+    display: block;
+    background-color: #E1DBB6;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -22,7 +23,7 @@ textarea {
 
 /* Header CSS */
 .headerBody{
-	background-color: tan;
+	background-color: #7CB9A0;
 	padding-bottom: 40px;
 }
 
@@ -58,7 +59,7 @@ li {
 }
 
 li a {
-	color: #0D118B;
+	color: black;
 	text-decoration: none;
 	/*font-size: 20pt;*/
 	list-style: none;
@@ -73,7 +74,7 @@ nav ul {
 nav ul li {
 	float: left;
 	margin-right: 20px;
-	background-color: white;
+	background-color: #7CB9A0;
 	border-radius: 8px;
 	list-style: none;
 	text-align: left;
